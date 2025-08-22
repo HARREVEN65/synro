@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравительная открытка</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        .card-container {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            position: relative;
+            perspective: 1000px;
+        }
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 30px 25px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-front {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .card-back {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            transform: rotateY(180deg);
+            text-align: left;
+        }
+        h1 {
+            color: #2b2d42;
+            margin-bottom: 25px;
+            font-size: 28px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #d90429;
+            margin: 20px 0 15px 0;
+            font-size: 20px;
+        }
+        p {
+            color: #2b2d42;
+            line-height: 1.7;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .hearts {
+            font-size: 40px;
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .signature {
+            margin-top: 25px;
+            font-style: italic;
+            color: #ef233c;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+        }
+        .instruction {
+            text-align: center;
+            margin-top: 15px;
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            font-style: italic;
+        }
+        .front-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        @media (max-width: 480px) {
+            .card-container {
+                height: 450px;
+            }
+            .card-face {
+                padding: 25px 20px;
+            }
+            h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .front-title {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 18px;
+                margin: 15px 0 12px 0;
+            }
+            p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+            .hearts {
+                font-size: 35px;
+                margin: 20px 0;
+            }
+            .signature {
+                font-size: 16px;
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff6b6b;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card" id="card">
+            <div class="card-face card-front">
+                <div class="front-title">Для Тебя!</div>
+                <div class="hearts">
+                    <span>❤️</span>
+                    <span>✨</span>
+                    <span>❤️</span>
+                </div>
+                <p>Нажмите, чтобы открыть поздравительное письмо</p>
+                <div class="instruction">(Коснитесь или кликните для перелистывания)</div>
+            </div>
+            
+            <div class="card-face card-back">
+                <h1>Дорогая тётя Юля!</h1>
+                
+                <p>Хочу от всей души поздравить тебя и выразить свою искреннюю признательность! Ты - удивительный человек, который всегда дарит тепло, заботу и хорошее настроение всем вокруг.</p>
+                
+                <h2>Твоя доброта</h2>
+                <p>Твоё доброе сердце и отзывчивость не знают границ. Ты всегда готова прийти на помощь, поддержать в трудную минуту и разделить радостные моменты. Твоя мудрость и жизненный опыт помогают многим людям.</p>
+                
+                <h2>Вдохновение</h2>
+                <p>Ты являешься настоящим примером для подражания - сильная, целеустремлённая и невероятно трудолюбивая. Твоя энергия и оптимизм заряжают всех вокруг и создают особую атмосферу тепла и уюта.</p>
+                
+                <h2>Искренние пожелания</h2>
+                <p>Желаю тебе крепкого здоровья, неиссякаемой энергии, семейного благополучия и простого человеческого счастья. Пусть каждый твой день будет наполнен радостными моментами, улыбками близких людей и исполнением самых заветных желаний!</p>
+                
+                <div class="hearts">
+                    <span>🌷</span>
+                    <span>🌈</span>
+                    <span>🌟</span>
+                </div>
+                
+                <p class="signature">С любовью и уважением,<br>Тамерлан</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('card').addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
+        
+        let startX = 0;
+        const card = document.getElementById('card');
+        
+        card.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+        });
+        
+        card.addEventListener('touchend', function(e) {
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) {
+                this.classList.toggle('flipped');
+            }
+        });
+    </script>
+</body>
+</html>
